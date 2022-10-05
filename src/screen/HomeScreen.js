@@ -6,6 +6,7 @@ import {
     Button,
     TextInput,
     TouchableOpacity,
+    FlatList,
 } from 'react-native'
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
@@ -13,15 +14,23 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 
 export default function HomeScreen(props) {
+    const [food, setFood] = useState('banana')
+    const changeFood = (foodGet) => {
+        setFood(foodGet)
+    }
     return (
         <View style={styles.container}>
-            <Text>HomeScreen</Text>
+            {/* <Text>HomeScreen</Text>
+            <Text>{food}</Text>
             <Button
                 title='go to next page'
                 onPress={() => {
-                    props.navigation.push('HomeDetailScreen')
+                    props.navigation.push('HomeDetailScreen', {
+                        name: 'molly',
+                        functionA: (arg) => changeFood(arg),
+                    })
                 }}
-            />
+            /> */}
         </View>
     )
 }

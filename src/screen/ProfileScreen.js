@@ -12,10 +12,16 @@ import PropTypes from 'prop-types'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 
-export default function ProfileScreen() {
+export default function ProfileScreen(props) {
     return (
         <View style={styles.container}>
             <Text>ProfileScreen</Text>
+            <Button
+                title='go to next page'
+                onPress={() => {
+                    props.navigation.push('ProfileDetailScreen')
+                }}
+            />
         </View>
     )
 }

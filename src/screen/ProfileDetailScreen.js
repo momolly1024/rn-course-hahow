@@ -1,21 +1,15 @@
 import { StyleSheet, View, Text, Button } from 'react-native'
 import React from 'react'
 
-export default function HomeDetailScreen(props) {
-    const name = props.route.params.name || 'nothing get'
+export default function ProfileDetailScreen(props) {
     return (
         <View style={styles.container}>
-            <Text>HomeDetailScreen</Text>
+            <Text>ProfileDetailScreen</Text>
             <Button
                 title='go back'
                 onPress={() => {
-                    props.navigation.push('Home')
+                    props.navigation.push('Profile')
                 }}
-            />
-            <Text>{name}</Text>
-            <Button
-                title='change first page food'
-                onPress={() => props.route.params.functionA('apple')}
             />
         </View>
     )
