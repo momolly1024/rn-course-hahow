@@ -73,7 +73,7 @@ export default function App() {
 
         <NavigationContainer>
             <Tab.Navigator
-                initialRouteName='Settings'
+                initialRouteName='Home'
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName
