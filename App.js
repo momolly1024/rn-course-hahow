@@ -11,12 +11,13 @@ import {
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import MyButton from './src/components/button/MyButton'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import HomeScreen from './src/screen/HomeScreen'
 import ProfileScreen from './src/screen/ProfileScreen'
 import HomeDetailScreen from './src/screen/HomeDetailScreen'
 import ProfileDetailScreen from './src/screen/ProfileDetailScreen'
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { NavigationContainer } from '@react-navigation/native'
 import Ionicons from 'react-native-vector-icons/Ionicons'

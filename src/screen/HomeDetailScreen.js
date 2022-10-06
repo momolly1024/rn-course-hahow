@@ -7,19 +7,8 @@ export default function HomeDetailScreen(props) {
     return (
         <View style={styles.container}>
             <Text>HomeDetailScreen</Text>
-            <Text>{passProps.note}</Text>
-            <Image source={{ uri: passProps.photo }} style={styles.image} />
-            {/* <Button
-                title='go back'
-                onPress={() => {
-                    props.navigation.push('Home')
-                }}
-            />
-            <Text>{name}</Text>
-            <Button
-                title='change first page food'
-                onPress={() => props.route.params.functionA('apple')}
-            /> */}
+            <Text style={{ fontSize: 30 }}>{passProps.note}</Text>
+            {/* <Image style={styles.image}  source={{ uri: passProps.photo }} /> */}
         </View>
     )
 }
