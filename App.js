@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     Image,
 } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import MyButton from './src/components/button/MyButton'
 
@@ -67,49 +67,21 @@ function MyProfileStack() {
     )
 }
 export default function App() {
+    const [count, setCount] = useState(0)
+    // useEffect(() => {
+    //     console.log('useEffect count', count)
+    //     const myCount = setInterval(() => {
+    //         setCount(count + 1)
+    //     }, 1000)
+    //     return () => {
+    //         clearInterval(myCount)
+    //         console.log('clearInterval return', count)
+    //     }
+    // }, [count])
     return (
-        // <View style={styles.container}>
-        //     <Text>Open up App.js to start working on your app!</Text>
-        // </View>
-
-        <NavigationContainer>
-            <Tab.Navigator
-                initialRouteName='Home'
-                screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName
-
-                        if (route.name === 'Home') {
-                            // return (
-                            //     <Image
-                            //         source={{
-                            //             uri: 'https://images.pexels.com/photos/2872767/pexels-photo-2872767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-                            //         }}
-                            //         style={{ width: 50, height: 50 }}
-                            //     />
-                            // )
-                            iconName = focused
-                                ? 'ios-information-circle'
-                                : 'ios-information-circle-outline'
-                        } else if (route.name === 'Settings') {
-                            iconName = focused ? 'ios-trophy' : 'ios-list'
-                        }
-                        return (
-                            <Ionicons
-                                name={iconName}
-                                size={size}
-                                color={color}
-                            />
-                        )
-                    },
-                    tabBarActiveTintColor: 'tomato',
-                    tabBarInactiveTintColor: 'gray',
-                })}
-            >
-                <Tab.Screen name='Home' component={MyHomeStack} />
-                <Tab.Screen name='Settings' component={MyProfileStack} />
-            </Tab.Navigator>
-        </NavigationContainer>
+        <View>
+            <Text>{count}</Text>
+        </View>
     )
 }
 
