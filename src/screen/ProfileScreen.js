@@ -12,19 +12,24 @@ import PropTypes from 'prop-types'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import * as StorageHelper from '../helpers/StorageHelper'
-
+import { useMappedState, useDispatch } from 'redux-react-hook'
+import { changeName } from '../redux/action'
 export default function ProfileScreen(props) {
     const [name, setName] = useState('')
-    useEffect(() => {
-        loadStorage()
-    }, [])
-    const loadStorage = async () => {
-        let nameGet = await StorageHelper.getMySetting('name')
-        if (nameGet) {
-            setName(nameGet)
-        }
-    }
-    const changeName = async () => {
+
+    const myNewName = useMappedState((state) => state.newName)
+    const dispatch = useDispatch()
+
+    // useEffect(() => {
+    //     loadStorage()
+    // }, [])
+    // const loadStorage = async () => {
+    //     let nameGet = await StorageHelper.getMySetting('name')
+    //     if (nameGet) {
+    //         setName(nameGet)
+    //     }
+    // }
+    const changeName1 = ddddddd () => {
         try {
             await StorageHelper.setMySetting('name', name)
         } catch (err) {
@@ -34,7 +39,7 @@ export default function ProfileScreen(props) {
     return (
         <View style={styles.container}>
             <Text>ProfileScreen</Text>
-            <TextInput
+            {/* <TextInput
                 maxLength={10}
                 style={{
                     height: 50,
@@ -55,15 +60,27 @@ export default function ProfileScreen(props) {
             <Button
                 title='設定名字'
                 onPress={() => {
-                    changeName()
+                    changeName1()
                 }}
-            />
+            /> */}
             {/* <Button
                 title='go to next page'
                 onPress={() => {
                     props.navigation.push('ProfileDetailScreen')
                 }}
             /> */}
+            <Text>==============</Text>
+            <Text>{myNewName}</Text>
+            <Button
+                title='設定名字'
+                onPress={() => {
+                    // dispatch({
+                    //     type: 'CHANGE_NAME',
+                    //     payload: { newName: name },
+                    // }) 等於下方
+                    dispatch(changeName(name))
+                }}
+            />
         </View>
     )
 }

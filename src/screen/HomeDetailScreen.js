@@ -8,6 +8,7 @@ export default function HomeDetailScreen(props) {
         <View style={styles.container}>
             <Text>HomeDetailScreen</Text>
             <Text style={{ fontSize: 30 }}>{passProps.note}</Text>
+
             {/* <Image style={styles.image}  source={{ uri: passProps.photo }} /> */}
         </View>
     )

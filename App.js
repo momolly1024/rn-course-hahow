@@ -21,6 +21,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { createStackNavigator } from '@react-navigation/stack'
+// redux
+import configureStore from './src/redux/store'
+import { StoreContext } from 'redux-react-hook'
+
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
 
@@ -64,7 +68,7 @@ function MyProfileStack() {
         </Stack.Navigator>
     )
 }
-export default function App() {
+function App() {
     return (
         // <View style={styles.container}>
         //     <Text>Open up App.js to start working on your app!</Text>
@@ -111,6 +115,11 @@ export default function App() {
     )
 }
 
+export default MyApp = () => (
+    <StoreContext.Provider value={store}>
+        <App />
+    </StoreContext.Provider>
+)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
